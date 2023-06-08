@@ -1,0 +1,20 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/"> The Best Car Deals </a>
+      <div class="navbar">
+        <div class="navbar-nav">
+          <a class="nav-link active" href="/">
+            Home</span>
+          </a>
+          <a class="nav-link" href="/viewrecords"> Browse Records</a>
+          <% if( admin) { %>
+            <a class="nav-link" href="/logout"> <%= admin.email %> (Logout) </a>
+            <a class="nav-link" href="/register"> Add an Admin </a>
+            <% } %>
+          <% if(!admin) { %>
+          <a class="nav-link" href="/login"> Login</a>
+          <% } %>
+        </div>
+      </div>
+    </nav>
+</header>
