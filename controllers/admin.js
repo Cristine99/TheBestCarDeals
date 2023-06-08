@@ -34,6 +34,15 @@ exports.login = async (req, res) => {
 exports.create = async (req, res) => {
     try {
 
+        const alreadyexist = await adminmodel.findOne({ email: req.body.email });
+        
+        if (alreadyexist) 
+        {
+            res.redirect('/login');
+            return
+        }
+
+
         const admin = new adminmodel({ email: req.body.email, password: req.body.password });
         await admin.save();
         res.redirect('/?message=admin added')
