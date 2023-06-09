@@ -11,7 +11,7 @@ const adminSchema = new Schema(
 );
 
 adminSchema.pre('save', async function (next) {
-    console.log(this.password);
+    //console.log(this.password);
     try {
         const hash = await bcrypt.hash(this.password, 10);
         this.password = hash;
